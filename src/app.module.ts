@@ -3,6 +3,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
 import { User } from './user/entities/user.entity.js';
+import { UserModule } from './user/user.module.js';
 
 @Module({
   imports: [
@@ -23,7 +24,8 @@ import { User } from './user/entities/user.entity.js';
         synchronize: true, // ⚠️ Solo para desarrollo (crea las tablas automáticamente)
       }),
     }),
-  ],
+    UserModule,
+  ], 
   controllers: [],
   providers: [],
 })
