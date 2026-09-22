@@ -45,6 +45,16 @@ export class UsersService {
       throw new InternalServerErrorException('Error al registrar el usuario');
     }
   }
+  // En src/users/users.service.ts
+
+async findByEmailWithPassword(email: string): Promise<User | null> {
+  return this.userRepository
+    .createQueryBuilder('user')
+    .where('user.email = :email', { email })
+    .addSelect('user.password') // 👈 Le dice a Postgres: "Esta vez sí tráeme el password hasheado"
+    .getOne();
+}
+
 
   findAll() {
     return `This action returns all user`;
