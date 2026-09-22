@@ -6,7 +6,6 @@ import { JwtService } from '@nestjs/jwt';
 import * as bcrypt from 'bcrypt';
 import { UsersService } from '../user/user.service.js';
 import { LoginDto } from '../user/dto/login-user.dto.js';
-import { User } from '../user/entities/user.entity.js';
 
 @Injectable()
 export class AuthService {
@@ -57,3 +56,5 @@ export class AuthService {
     };
   }
 }
+
+
